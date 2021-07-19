@@ -23,4 +23,4 @@ let arr = [
   }, {}, {},
 ];
 
-alert(arr);
+console(arr);
