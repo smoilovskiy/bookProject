@@ -7,13 +7,6 @@ function getRandomFloat(min, max) {
   return (min + Math.random() * (max - min)).toFixed(5);
 }
 
-// function getNumberPlus()
-//   return i++;
-
-let Х = getRandomFloat(35.65000, 35.70000);
-let Y = getRandomFloat(139.70000, 139.80000);
-
-
 const titles = ['заголовок1', 'заголовок2', 'заголовок3', 'заголовок4', 'заголовок5', 'заголовок6', 'заголовок7', 'заголовок8', 'заголовок9', 'заголовок10'];
 const types = ['palace', 'flat', 'house', 'bungalow'];
 const times = ['12:00', '13:00', '14:00'];
