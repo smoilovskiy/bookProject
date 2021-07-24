@@ -13,6 +13,6 @@ export const TITLES = ['Жильё №1', 'Жильё №2', 'Жильё №3', 
 export const TYPES = ['palace', 'flat', 'house', 'bungalow'];
 export const TIMES = ['12:00', '13:00', '14:00'];
 export const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
-export const DESCRIPTIONS = ['описание1', 'описание2', 'описание3', 'описание4', 'описание5', 'описание6', 'описание7', 'описание8', 'описание9', 'описание10'];
+export const DESCRIPTIONS = ['Описание жилья №1', 'Описание жилья №2', 'Описание жилья №3', 'Описание жилья №4', 'Описание жилья №5', 'Описание жилья №6', 'Описание жилья №7', 'Описание жилья №8', 'Описание жилья №9', 'Описание жилья №10'];
 export const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
