@@ -1,3 +1,4 @@
+'use strict';
 import { offers } from './offersGen.js';
 import { clonedCard } from './card.js';
 

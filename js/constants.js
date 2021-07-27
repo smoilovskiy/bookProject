@@ -1,3 +1,4 @@
+'use strict';
 export const OBJECTS_COUNT = 10; //number of generated objects
 export const X_START = 35.65000, X_END = 35.70000; //longitude range
 export const Y_START = 139.70000, Y_END = 139.80000; //latitude range
