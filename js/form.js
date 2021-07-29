@@ -1,7 +1,58 @@
 'use strict';
 //let form = document.querySelector(".ad-form__element");
+
 let typeHome = document.querySelector("#type");
 let formPrice = document.querySelector("#price");
+
+export function setUiDisabled() {
+
+  function setMapFiltersDisable() {
+    let selectContainer = document.querySelector('.map__filters');
+    let allSelect = selectContainer.querySelectorAll('select');
+    for (let i = 0; i < allSelect.length; i++) {
+      allSelect[i].disabled = true;
+    }
+    let features = document.querySelector('.map__features');
+    features.disabled = true;
+  }
+
+  function setFormDisable() {
+    let featuresContainer = document.querySelector('.ad-form');
+    let featuresInputs = featuresContainer.querySelectorAll('fieldset');
+    for (let i = 0; i < featuresInputs.length; i++) {
+      featuresInputs[i].disabled = true;
+    }
+  }
+
+  setMapFiltersDisable();
+  setFormDisable();
+
+}
+
+export function setUiEnabled() {
+
+  function setMapFiltersEnable() {
+    let selectContainer = document.querySelector('.map__filters');
+    let allSelect = selectContainer.querySelectorAll('select');
+    for (let i = 0; i < allSelect.length; i++) {
+      allSelect[i].disabled = false;
+    }
+    let features = document.querySelector('.map__features');
+    features.disabled = false;
+  }
+
+  function setFormEnable() {
+    let featuresContainer = document.querySelector('.ad-form');
+    let featuresInputs = featuresContainer.querySelectorAll('fieldset');
+    for (let i = 0; i < featuresInputs.length; i++) {
+      featuresInputs[i].disabled = false;
+    }
+  }
+
+  setMapFiltersEnable();
+  setFormEnable();
+
+}
 
 
 typeHome.addEventListener("change", homePrice)

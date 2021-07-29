@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="leaflet/leaflet.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кексобукинг</title>
-  <script defer type="module" src="./js/main.js"></script>
   <script defer src="./leaflet/leaflet.js"></script>
+  <script defer type="module" src="./js/main.js"></script>
+  
 </head>
 <body>
   <main>
@@ -96,7 +97,7 @@
           <label class="ad-form__label" for="address">Адрес (координаты)</label>
           <input id="address" name="address" type="text">
         </fieldset>
-        <fieldset class="ad-form__element">
+        <fieldset class="ad-form__element" disabled>
           <label class="ad-form__label" for="type">Тип жилья</label>
           <select id="type" name="type">
             <option value="bungalow">Бунгало</option>
