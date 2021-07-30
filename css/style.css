@@ -379,22 +379,27 @@ fieldset {
 }
 
 input[disabled], input:hover[disabled] { 
-  background-color:#999999;
-  border-color: #999999;
+  background-color:#868686;
+  border-color: #868686;
 }
 
 select[disabled], select:hover[disabled] { 
-  background-color:#999999;
-  border-color: #999999;
+  background-color:#868686;
+  border-color: #868686;
 }
 
 textarea[disabled] { 
-  background-color:#999999;
+  background-color:#868686;
 }
 
 button[disabled], button:hover[disabled] { 
-  background-color:#999999;
-  border-color: #999999;
+  background-color:#868686;
+  border-color: #868686;
+}
+
+.map__feature[disabled] {
+  background-color:#868686;
+  border-color: #868686;
 }
 
 

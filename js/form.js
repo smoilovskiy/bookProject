@@ -13,10 +13,14 @@ export function setUiDisabled() {
       allSelect[i].disabled = true;
     }
 
+    let featuresInputsMap = selectContainer.querySelectorAll('input');
+    for (let i = 0; i < featuresInputsMap.length; i++) {  
+      featuresInputsMap[i].disabled = true;
+    }
+
     let featuresMap = selectContainer.querySelectorAll('.map__feature');
     for (let i = 0; i < featuresMap.length; i++) {
       featuresMap[i].style = "background-color: #868686";
-      featuresMap[i].disabled = true;
     }
   }
 
@@ -57,15 +61,17 @@ export function setUiEnabled() {
     for (let i = 0; i < allSelect.length; i++) {
       allSelect[i].disabled = false;
     }
-    let features = document.querySelector('.map__features');
-    features.disabled = false;
+
+    let featuresInputsMap = selectContainer.querySelectorAll('input');
+    for (let i = 0; i < featuresInputsMap.length; i++) {  
+      featuresInputsMap[i].disabled = false;
+    }
 
     let featuresMap = selectContainer.querySelectorAll('.map__feature');
     for (let i = 0; i < featuresMap.length; i++) {
       featuresMap[i].style = "background-color: white";
-      featuresMap[i].disabled = false;
     }
-   }
+  }
 
   function setFormEnable() {
     let formContainer = document.querySelector('.ad-form');
