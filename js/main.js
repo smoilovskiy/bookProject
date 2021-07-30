@@ -6,8 +6,10 @@ import { mapInit } from './map.js'
 
 
 setUiDisabled();
-addEventListener("click", setUiEnabled);
-addEventListener("click", mapInit);
+mapInit();
+
+// addEventListener("click", setUiEnabled);
+// addEventListener("click", mapInit);
 
 
 import { homePrice, inTime, outTime } from "./form.js";
