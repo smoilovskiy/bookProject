@@ -6,7 +6,7 @@ import { mapInit } from './map.js'
 
 
 setUiDisabled();
-mapInit();
+// mapInit();
 
 // addEventListener("click", setUiEnabled);
 // addEventListener("click", mapInit);
