@@ -17,10 +17,10 @@ export function setUiDisabled() {
   }
 
   function setFormDisable() {
-    let featuresContainer = document.querySelector('.ad-form');
-    let featuresInputs = featuresContainer.querySelectorAll('fieldset');
-    for (let i = 0; i < featuresInputs.length; i++) {
-      featuresInputs[i].disabled = true;
+    let formContainer = document.querySelector('.ad-form');
+    let fieldsetInputs = formContainer.querySelectorAll('fieldset');
+    for (let i = 0; i < fieldsetInputs.length; i++) {
+      fieldsetInputs[i].disabled = true;
     }
   }
 
@@ -42,10 +42,10 @@ export function setUiEnabled() {
   }
 
   function setFormEnable() {
-    let featuresContainer = document.querySelector('.ad-form');
-    let featuresInputs = featuresContainer.querySelectorAll('fieldset');
-    for (let i = 0; i < featuresInputs.length; i++) {
-      featuresInputs[i].disabled = false;
+    let formContainer = document.querySelector('.ad-form');
+    let fieldsetInputs = formContainer.querySelectorAll('fieldset');
+    for (let i = 0; i < fieldsetInputs.length; i++) {
+      fieldsetInputs[i].disabled = false;
     }
   }
 
