@@ -397,7 +397,12 @@ button[disabled], button:hover[disabled] {
   border-color: #868686;
 }
 
-.map__feature[disabled] {
+.map__checkbox[disabled] + .map__feature {
+  background-color:#868686;
+  border-color: #868686;
+}
+
+.feature__checkbox[disabled] + .feature {
   background-color:#868686;
   border-color: #868686;
 }
