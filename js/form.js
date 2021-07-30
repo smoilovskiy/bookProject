@@ -12,16 +12,36 @@ export function setUiDisabled() {
     for (let i = 0; i < allSelect.length; i++) {
       allSelect[i].disabled = true;
     }
-    let features = document.querySelector('.map__features');
-    features.disabled = true;
+
+    let featuresMap = selectContainer.querySelectorAll('.map__feature');
+    for (let i = 0; i < featuresMap.length; i++) {
+      featuresMap[i].style = "background-color: #868686";
+      featuresMap[i].disabled = true;
+    }
   }
 
   function setFormDisable() {
     let formContainer = document.querySelector('.ad-form');
-    let fieldsetInputs = formContainer.querySelectorAll('fieldset');
-    for (let i = 0; i < fieldsetInputs.length; i++) {
-      fieldsetInputs[i].disabled = true;
+    let selectInputs = formContainer.querySelectorAll('select');
+    for (let i = 0; i < selectInputs.length; i++) {
+      selectInputs[i].disabled = true;
     }
+
+    let inputs = formContainer.querySelectorAll('input');
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].disabled = true;
+    }
+
+    let textareas = formContainer.querySelector('textarea');
+    textareas.disabled = true;
+
+    let featuresForm = formContainer.querySelectorAll('.feature');
+    for (let i = 0; i < featuresForm.length; i++) {
+      featuresForm[i].style = "background-color: #868686";
+    }
+
+    let submitButton = formContainer.querySelector('button');
+    submitButton.disabled = true;
   }
 
   setMapFiltersDisable();
@@ -39,14 +59,36 @@ export function setUiEnabled() {
     }
     let features = document.querySelector('.map__features');
     features.disabled = false;
-  }
+
+    let featuresMap = selectContainer.querySelectorAll('.map__feature');
+    for (let i = 0; i < featuresMap.length; i++) {
+      featuresMap[i].style = "background-color: white";
+      featuresMap[i].disabled = false;
+    }
+   }
 
   function setFormEnable() {
     let formContainer = document.querySelector('.ad-form');
-    let fieldsetInputs = formContainer.querySelectorAll('fieldset');
-    for (let i = 0; i < fieldsetInputs.length; i++) {
-      fieldsetInputs[i].disabled = false;
+    let selectInputs = formContainer.querySelectorAll('select');
+    for (let i = 0; i < selectInputs.length; i++) {
+      selectInputs[i].disabled = false;
     }
+
+    let inputs = formContainer.querySelectorAll('input');
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].disabled = false;
+    }
+
+    let textareas = formContainer.querySelector('textarea');
+    textareas.disabled = false;
+
+    let featuresForm = formContainer.querySelectorAll('.feature');
+    for (let i = 0; i < featuresForm.length; i++) {
+      featuresForm[i].style = "background-color: white";
+    }
+
+    let submitButton = formContainer.querySelector('button');
+    submitButton.disabled = false;
   }
 
   setMapFiltersEnable();

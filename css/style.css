@@ -378,6 +378,26 @@ fieldset {
   border-radius: 4px;
 }
 
+input[disabled], input:hover[disabled] { 
+  background-color:#999999;
+  border-color: #999999;
+}
+
+select[disabled], select:hover[disabled] { 
+  background-color:#999999;
+  border-color: #999999;
+}
+
+textarea[disabled] { 
+  background-color:#999999;
+}
+
+button[disabled], button:hover[disabled] { 
+  background-color:#999999;
+  border-color: #999999;
+}
+
+
 .ad-form__element input:hover,
 .ad-form__element select:hover,
 .ad-form__element textarea:hover {

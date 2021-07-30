@@ -6,10 +6,13 @@ import { mapInit } from './map.js'
 
 
 setUiDisabled();
-// mapInit();
 
-// addEventListener("click", setUiEnabled);
-// addEventListener("click", mapInit);
+
+var clickOnMap = document.querySelector('.map__canvas');
+clickOnMap.addEventListener("click", setUiEnabled);
+clickOnMap.addEventListener("click", mapInit);
+
+
 
 
 import { homePrice, inTime, outTime } from "./form.js";
