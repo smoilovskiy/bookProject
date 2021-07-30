@@ -2,25 +2,12 @@
 import { offers } from './offersGen.js';
 import { clonedCard } from './card.js';
 import { setUiDisabled, setUiEnabled } from './form.js';
-
+import { mapInit } from './map.js'
 
 
 setUiDisabled();
 addEventListener("click", setUiEnabled);
-
-
-const LAT = 35.685257;
-const LNG = 139.75146;
-const mapZoom = 10
-
-
-const mapOptions = {
-  center: [LAT, LNG],
-  zoom: mapZoom
-}
-const map = new L.map("map-canvas", mapOptions);
-const layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
-map.addLayer(layer);
+addEventListener("click", mapInit);
 
 
 import { homePrice, inTime, outTime } from "./form.js";
