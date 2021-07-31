@@ -1,3 +1,6 @@
+import { offers } from "./offersGen.js";
+import { createOffer } from "./card.js";
+
 export function mapInit() {
 
   const LAT = 35.685257;
@@ -25,48 +28,25 @@ export function mapInit() {
 
   }).addTo(map);
 
-  const formAddress = document.getElementById("address");
 
-  mainMarker.on("drag", newAddressMarker);
-
-  function newAddressMarker() {
-    let X = mainMarker.getLatLng().lat.toFixed(5);
-    let Y = mainMarker.getLatLng().lng.toFixed(5);
-      formAddress.value = X + " " + Y;
-  };
-
-  const commonPin = L.icon({
-    iconUrl: './img/pin.svg',
-    iconSize: [50, 50],
-  });
-
-  // const commonMarker = L.marker([LAT, LNG], {
-  //   icon: commonPin,
-  // }).addTo(map);
-
-
-  let X = offerObj.location.lat
-  let Y = offerObj.location.lng
-  const commonMarker = L.marker([X, Y], { icon: commonPin });
-  commonMarker.addTo(map).bindPopup(cloneCard(offerObj));
-
-
-
-  // function onMapClick(e) {
-  //   alert("You clicked the map at " + e.latlng);
-  // }
-
-  // map.on('click', onMapClick);
-
-  var popup = L.popup();
-
-  function onMapClick(e) {
-    popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(map);
+  for (let i = 0; i < offers.length; i++) {
+    let coordX = offers[i].location.x;
+    let coordY = offers[i].location.y;
+    createPins(coordX, coordY, offers[i]);
   }
 
-  map.on('click', onMapClick);
+  function createPins(lat, lng, offer) {
+    const commonPin = L.icon({
+      iconUrl: './img/pin.svg',
+      iconSize: [50, 50],
+    });
+
+    const commonMarker = L.marker([lat, lng], {
+      icon: commonPin,
+    })
+    let markUpCard = createOffer(offer);
+    commonMarker.bindPopup(markUpCard).openPopup();
+    commonMarker.addTo(map);
+  }
 
 }

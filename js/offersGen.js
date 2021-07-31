@@ -2,7 +2,7 @@
 import { getRandomInt, getRandomFloat } from './randomGen.js';
 import { OBJECTS_COUNT, X_START, X_END, Y_START, Y_END, N_PICT_START, N_PICT_END, PRICE_MIN, PRICE_MAX, TYPE_INDEX_START, 
   TYPE_INDEX_END, N_ROOMS_MIN, N_ROOMS_MAX, N_GUESTS_MIN, N_GUESTS_MAX, T_START, T_END, FEATURE_INDEX_START, FEATURE_INDEX_END,
-  PHOTO_INDEX_START, PHOTO_INDEX_END, TITLES, TYPES, TIMES, FEATURES, DESCRIPTIONS, PHOTOS } from './constants.js';
+  PHOTO_INDEX_START, PHOTO_INDEX_END, VISITOR_INDEX_START, VISITOR_INDEX_END, TITLES, TYPES, TIMES, FEATURES, DESCRIPTIONS, PHOTOS, VISITORS } from './constants.js';
 
 var counter = 0;
 export var offers = new Array(OBJECTS_COUNT).fill().map(function () {
@@ -33,6 +33,7 @@ export var offers = new Array(OBJECTS_COUNT).fill().map(function () {
       features: FEATURES.splice(getRandomInt(FEATURE_INDEX_START, FEATURE_INDEX_END), getRandomInt(FEATURE_INDEX_START, FEATURE_INDEX_END)),
       description: DESCRIPTIONS[counter],
       photos: PHOTOS.splice(getRandomInt(PHOTO_INDEX_START, PHOTO_INDEX_END), getRandomInt(PHOTO_INDEX_START, PHOTO_INDEX_END)),
+      visitors: VISITORS.splice(getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END), getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END))
     }
   }
   counter++;

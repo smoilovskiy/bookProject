@@ -1,6 +1,5 @@
 'use strict';
 import { offers } from './offersGen.js';
-import { clonedCard } from './card.js';
 import { setUiDisabled, setUiEnabled } from './form.js';
 import { mapInit } from './map.js'
 
@@ -10,7 +9,7 @@ setUiDisabled();
 
 var clickOnMap = document.querySelector('.map__canvas');
 clickOnMap.addEventListener("click", setUiEnabled);
-clickOnMap.addEventListener("click", mapInit);
+clickOnMap.addEventListener("click", mapInit, {once : true});
 
 
 

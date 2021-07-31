@@ -3,10 +3,12 @@ import { offers } from './offersGen.js';
 
 const firstOffer = offers[0];
 
+export function createOffer(firstOffer) {
+
 const card = document.querySelector('#card')
   .content
   .querySelector('.popup');
-export const clonedCard = card.cloneNode(true);
+const clonedCard = card.cloneNode(true);
 
 let title = clonedCard.querySelector('.popup__title');
 title.innerText = firstOffer.offer.title;
@@ -63,8 +65,22 @@ let photos = clonedCard.querySelector('.popup__photos');
 let newPhotos = firstOffer.offer.photos.map(photo => {
   return `<img src='${photo}' width="45" height="40" >`
    }).join(''); 
-photos.innerHTML  = newPhotos;
+photos.innerHTML = newPhotos;
 
-let avatar = clonedCard.querySelector(".popup__avatar");
+let avatar = clonedCard.querySelector('.popup__avatar');
 let srcAvatar = firstOffer.author.avatar;
 avatar.innerText = srcAvatar;
+
+// let article = clonedCard.querySelector('.popup');
+let p = document.createElement('p');
+clonedCard.append(p);
+let newVisitors = firstOffer.offer.visitors.map(visitor => 
+  {
+   return ` ${visitor}`;
+  })
+
+p.innerText = "Гости:" + newVisitors;
+
+
+return clonedCard;
+}
