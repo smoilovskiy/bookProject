@@ -3,7 +3,8 @@ import { createOffer } from "./card.js";
 
 export function mapInit() {
 
-  const LAT = 35.685257;
+  const formAddress = document.getElementById("address");
+  const LAT = 35.68525;
   const LNG = 139.75146;
   const mapZoom = 10
 
@@ -27,6 +28,16 @@ export function mapInit() {
     draggable: true,
 
   }).addTo(map);
+
+  formAddress.value = [LAT + "  " +  LNG];
+
+  mainMarker.on("drag", newAddressMarker);
+
+  function newAddressMarker() {
+    let coordX = mainMarker.getLatLng().lat.toFixed(5);
+    let coordY = mainMarker.getLatLng().lng.toFixed(5);
+    formAddress.value = coordX + " " + coordY;
+  };
 
 
   for (let i = 0; i < offers.length; i++) {
