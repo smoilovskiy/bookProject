@@ -122,11 +122,11 @@ export function homePrice(evt) {
 
 //let formEl = document.querySelector(".ad-form__element--time");
 
-let timeIn = document.getElementById("timein")
-let timeOut = document.getElementById("timeout")
+let timeIn = document.querySelector('#timein');
+let timeOut = document.querySelector('#timeout');
 
-timeIn.addEventListener("change", inTime)
-timeOut.addEventListener("change", outTime)
+timeIn.addEventListener("change", inTime);
+timeOut.addEventListener("change", outTime);
 
 
 export function inTime(evt) {
