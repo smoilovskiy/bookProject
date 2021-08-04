@@ -16,11 +16,18 @@ checkTitle();
 checkPrice();
 checkRoominess();
 
+// let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+// let response = await fetch(url);
+
+// let commits = await response.json(); // читаем ответ в формате JSON
+
+// alert(commits[0].author.login);
 
 
-// import { homePrice, inTime, outTime } from "./form.js";
+let url = 'https://23.javascript.pages.academy/keksobooking/data';
+let response = await fetch(url);
 
-// console.log(homePrice, inTime, outTime);
+let json = await response.json();
+alert("Вот: " + json[0]);
 
-// console.log(offers[0]);
 console.log(offers);
