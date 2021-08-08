@@ -14,12 +14,12 @@ let title = clonedCard.querySelector('.popup__title');
 title.innerText = firstOffer.offer.title;
 
 let address = clonedCard.querySelector('.popup__text--address');
-let longitude = firstOffer.offer.address.lat;
-let latitude = firstOffer.offer.address.lng;
+let longitude = firstOffer.offer.address.x;
+let latitude = firstOffer.offer.address.y;
 address.innerText = 'Адрес: ' + longitude + ' ' + latitude;
 
 let price = clonedCard.querySelector('.popup__text--price');
-price.innerText = firstOffer.offer.price + 'р / ночь';
+price.innerText = firstOffer.offer.price + '$ / ночь';
 
 let type = clonedCard.querySelector('.popup__type');
 let select = firstOffer.offer.type;

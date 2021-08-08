@@ -33,7 +33,7 @@ export var offers = new Array(OBJECTS_COUNT).fill().map(function () {
       features: FEATURES.splice(getRandomInt(FEATURE_INDEX_START, FEATURE_INDEX_END), getRandomInt(FEATURE_INDEX_START, FEATURE_INDEX_END)),
       description: DESCRIPTIONS[counter],
       photos: PHOTOS.splice(getRandomInt(PHOTO_INDEX_START, PHOTO_INDEX_END), getRandomInt(PHOTO_INDEX_START, PHOTO_INDEX_END)),
-      visitors: VISITORS.splice(getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END), getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END))
+      // visitors: VISITORS.splice(getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END), getRandomInt(VISITOR_INDEX_START, VISITOR_INDEX_END))
     }
   }
   counter++;
