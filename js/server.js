@@ -10,13 +10,3 @@ export async function getData() {
   let serverAnswer = await response.json()
   return serverAnswer;
 }
-
-
-// getData().then(function (serverAnswer) {
-//   console.log(serverAnswer);
-//   // return serverAnswer;
-
-//   // createBlueMarkers(resp)
-
-// })
-

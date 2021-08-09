@@ -43,35 +43,35 @@ export function mapInit() {
 
   getData().then(function (serverAnswer) {
     console.log(serverAnswer);
-  
     createCommonMarkers(serverAnswer);
-  
   })
 
-function createCommonMarkers(serverAnswer) {
+  function createCommonMarkers(serverAnswer) {
 
-  for (let i = 0; i < serverAnswer.length; i++) {
-    let coordX = serverAnswer[i].location.lat;
-    let coordY = serverAnswer[i].location.lng;
-    createPins(coordX, coordY, serverAnswer[i]);
-    console.log(serverAnswer[i]);
+    for (let i = 0; i < serverAnswer.length; i++) {
+      let coordX = serverAnswer[i].location.lat;
+      let coordY = serverAnswer[i].location.lng;
+      createPins(coordX, coordY, serverAnswer[i]);
+      console.log(serverAnswer[i]);
+    }
+
+    function createPins(lat, lng, offer) {
+      const commonPin = L.icon({
+        iconUrl: './img/pin.svg',
+        iconSize: [50, 50],
+      });
+
+      const commonMarker = L.marker([lat, lng], {
+        icon: commonPin,
+      })
+      let markUpCard = createOffer(offer);
+      commonMarker.bindPopup(markUpCard).openPopup();
+      commonMarker.addTo(map);
+      return serverAnswer;
+
+    }
+
   }
-
-  function createPins(lat, lng, offer) {
-    const commonPin = L.icon({
-      iconUrl: './img/pin.svg',
-      iconSize: [50, 50],
-    });
-
-    const commonMarker = L.marker([lat, lng], {
-      icon: commonPin,
-    })
-    let markUpCard = createOffer(offer);
-    commonMarker.bindPopup(markUpCard).openPopup();
-    commonMarker.addTo(map);
-  }
-
-}
   // for (let i = 0; i < offers.length; i++) {
   //   let coordX = offers[i].location.x;
   //   let coordY = offers[i].location.y;
