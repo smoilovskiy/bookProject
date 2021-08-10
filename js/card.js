@@ -2,9 +2,13 @@
 import { offers } from './offersGen.js';
 import { getData } from "./server.js";
 
-getData().then(function (serverAnswer) {
+getData()
+.then(function (serverAnswer) {
   createOffer(serverAnswer[0]);
 })
+.catch(function() {
+  alert('Get data error from server');
+});
 
 
 export function createOffer(firstOffer) {
