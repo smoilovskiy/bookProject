@@ -50,29 +50,32 @@ export function createOffer(firstOffer) {
   let checkout = firstOffer.offer.checkout;
   time.innerText = 'Заезд после ' + checkin + ', выезд до ' + checkout;
 
-
-  // console.log(firstOffer.offer.features.length);
-
   let features = clonedCard.querySelector('.popup__features');
 
+  if (typeof firstOffer.offer['features'] !== "undefined") {
 
-  // if (firstOffer.offer.features.length > 0) {
-  //   let newFeatures = firstOffer.offer.features.map(feature => {
-  //     return `<li class = "popup__feature popup__feature--${feature}">`
-  //   })
-  //   features.innerHTML = newFeatures;
-  // }
-
+    // if (firstOffer.offer['features'].length > 0) {
+    let newFeatures = firstOffer.offer.features.map(feature => {
+      return `<li class = "popup__feature popup__feature--${feature}">`
+    })
+    features.innerHTML = newFeatures;
+    // }
+  }
 
   let description = clonedCard.querySelector('.popup__description');
   description.innerText = firstOffer.offer.description;
 
 
-  // let photos = clonedCard.querySelector('.popup__photos');
-  // let newPhotos = firstOffer.offer.photos.map(photo => {
-  //   return `<img src='${photo}' width="45" height="40" >`
-  //    }).join(''); 
-  // photos.innerHTML = newPhotos;
+  if (typeof firstOffer.offer['photos'] !== "undefined") {
+
+    let photos = clonedCard.querySelector('.popup__photos');
+    let newPhotos = firstOffer.offer.photos.map(photo => {
+      return `<img src='${photo}' width="45" height="40" >`
+    }).join('');
+    photos.innerHTML = newPhotos;
+
+  }
+
 
   let avatar = clonedCard.querySelector('.popup__avatar');
   let srcAvatar = firstOffer.author.avatar;
