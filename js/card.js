@@ -66,7 +66,7 @@ export function createOffer(firstOffer) {
   description.innerText = firstOffer.offer.description;
 
 
-  if (typeof firstOffer.offer['photos'] !== "undefined") {
+  if (typeof firstOffer.offer['photos'] !== "undefined" && firstOffer.offer.photos.length > 0) {
 
     let photos = clonedCard.querySelector('.popup__photos');
     let newPhotos = firstOffer.offer.photos.map(photo => {
@@ -79,7 +79,11 @@ export function createOffer(firstOffer) {
 
   let avatar = clonedCard.querySelector('.popup__avatar');
   let srcAvatar = firstOffer.author.avatar;
-  avatar.innerText = srcAvatar;
+  avatar.src = srcAvatar;
+
+  // let popAvatar = clonedCard.querySelector(".popup__avatar");
+  // let srcAvatar = offerDate['author'].avatar;
+  // popAvatar.innerText = srcAvatar;
 
   // let article = clonedCard.querySelector('.popup');
   // let p = document.createElement('p');
