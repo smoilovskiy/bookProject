@@ -2,13 +2,15 @@
 import { offers } from './offersGen.js';
 import { getData } from "./server.js";
 
-getData()
+// const getError = 'Get data from server error';
+const getError = 'Ошибка загрузки данных с сервера';
+
+getData(getError)
 .then(function (serverAnswer) {
-  createOffer(serverAnswer[0]);
+
+  createOffer(serverAnswer[0])
 })
-.catch(function() {
-  alert('Get data error from server');
-});
+
 
 
 export function createOffer(firstOffer) {

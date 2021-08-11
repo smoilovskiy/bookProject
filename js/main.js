@@ -16,7 +16,7 @@ clickOnMap.addEventListener("click", mapInit, { once: true });
 checkTitle();
 checkPrice();
 checkRoominess();
-getData();
+// getData();
 
 
 

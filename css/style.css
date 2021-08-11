@@ -1054,5 +1054,5 @@ button[disabled], button:hover[disabled] {
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
 }
