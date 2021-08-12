@@ -1,29 +1,41 @@
-export function getSuccessMessage() {
+export function getSuccessMessage(successMessage) {
 
   let main = document.querySelector('main');
-  let fragment = document.createDocumentFragment();
-  let successTemplate = document.querySelector('#success')
-    .content.querySelector('.success').cloneNode(true);
+  let elem = document.createElement('div');
+  let successTemplate = success.content.cloneNode(true);
 
-  fragment.appendChild(successTemplate);
-  main.appendChild(fragment);
+  let newSuccessMessage = successTemplate.querySelector('.success__message');
+  newSuccessMessage.innerText = successMessage;
+
+  elem.append(successTemplate);
+  main.append(elem);
+
+
 }
 
 
 export function getErrorMessage(errorMessage) {
-  console.log(errorMessage);
 
   let main = document.querySelector('main');
-  let fragment = document.createDocumentFragment();
-  let errorTemplate = document.querySelector('#error')
-    .content.querySelector('.error').cloneNode(true);
+  let elem = document.createElement('div');
+  let errorTemplate = error.content.cloneNode(true);
 
   let newErrorMessage = errorTemplate.querySelector('.error__message');
   newErrorMessage.innerText = errorMessage;
 
+  elem.append(errorTemplate);
+  main.append(elem);
 
-  fragment.appendChild(errorTemplate);
-  main.appendChild(fragment);
+
+  // let fragment = document.createDocumentFragment();
+  // let errorTemplate = document.querySelector('#error')
+  //   .content.querySelector('.error').cloneNode(true);
+
+
+
+
+  // fragment.appendChild(errorTemplate);
+  // main.appendChild(fragment);
 
   // onButtonErrorClick();
   // document.addEventListener('keydown', onEscapeErrorClick);

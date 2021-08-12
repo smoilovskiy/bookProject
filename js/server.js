@@ -1,14 +1,13 @@
 import { mapInit } from "./map.js";
 import { getSuccessMessage, getErrorMessage } from './messages.js';
+import { sendFormSuccess, sendFormError } from './constants.js';
 
-const allForm = document.querySelector('.ad-form');
+const dataForm = document.querySelector('.ad-form');
 const resetBtn = document.querySelector('.ad-form__reset');
 const main = document.querySelector('main');
 
-const sendFormError = 'Ошибка размещения объявления';
-const sendFormSuccess = 'Ваше объявление<br>успешно размещено!';
 
-export async function getData(errorMessage, success) {
+export async function getData() {
 
   let response = await fetch('https://23.javascript.pages.academy/keksobooking/data',
     {
@@ -16,14 +15,35 @@ export async function getData(errorMessage, success) {
       credentials: 'same-origin',
     })
 
-  console.log(response.status);
-
-  if (response.status >= 400) {
-    getErrorMessage(errorMessage + ' ' + response.status);
-  }
 
   let serverAnswer = await response.json();
 
   return serverAnswer;
 }
 
+
+
+
+
+dataForm.addEventListener('submit', sendData);
+
+export async function sendData(e) {
+   e.preventDefault();
+
+   const formData  = new FormData(dataForm); 
+
+  let responce = await fetch('https://23.javascript.pages.academy/keksobooking', {
+    method: 'POST',
+    body: formData
+  });
+
+      getSuccessMessage(sendFormError);
+      dataForm.reset();
+      
+
+
+}
+
+resetBtn.addEventListener("click", () => {
+  dataForm.reset();
+})

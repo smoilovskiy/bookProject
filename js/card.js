@@ -1,15 +1,22 @@
 'use strict';
 import { offers } from './offersGen.js';
 import { getData } from "./server.js";
+import { getErrorMessage } from './messages.js';
+import { getSuccessMessage } from './messages.js';
 
-// const getError = 'Get data from server error';
-const getError = 'Ошибка загрузки данных с сервера';
 
-getData(getError)
+getData()
 .then(function (serverAnswer) {
-
-  createOffer(serverAnswer[0])
+  // getSuccessMessage(getSuccess);
+  createOffer(serverAnswer[0]);
 })
+.catch(function (error) {
+  getErrorMessage(error);
+  let quitButton = document.querySelector('.error__button');
+  quitButton.addEventListener('click', getData)
+})
+
+
 
 
 
