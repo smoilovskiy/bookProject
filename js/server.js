@@ -1,6 +1,9 @@
 import { mapInit } from "./map.js";
 import { getSuccessMessage, getErrorMessage } from './messages.js';
 
+const allForm = document.querySelector('.ad-form');
+const resetBtn = document.querySelector('.ad-form__reset');
+const main = document.querySelector('main');
 
 const sendFormError = 'Ошибка размещения объявления';
 const sendFormSuccess = 'Ваше объявление<br>успешно размещено!';

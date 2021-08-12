@@ -1,12 +1,5 @@
 export function getSuccessMessage() {
-  // const successMessage = document.querySelector('#success')
-  // .content
-  // .querySelector('.success');
-  // const clonedMessage = successMessage.cloneNode(true);
 
-
-  // let success = clonedMessage.querySelector('.success');
-  // success.innerText = "Узбек";
   let main = document.querySelector('main');
   let fragment = document.createDocumentFragment();
   let successTemplate = document.querySelector('#success')
@@ -32,4 +25,27 @@ export function getErrorMessage(errorMessage) {
   fragment.appendChild(errorTemplate);
   main.appendChild(fragment);
 
+  // onButtonErrorClick();
+  // document.addEventListener('keydown', onEscapeErrorClick);
+
+  // function onEscapeErrorClick(evt) {
+  //   if (window.utils.isEscapeEvt(evt)) {
+  //     removeErrorPopup();
+  //   }
+  // }
+
+  // function removeErrorPopup() {
+  //   let popup = document.querySelector('.error');
+  //   document.removeEventListener('keydown', onEscapeErrorClick);
+  //   // window.map.dectivateInterface();
+  //   popup.remove();
+  // }
+
+  // function onButtonErrorClick() {
+  //   let button = document.querySelector('.error').querySelector('.error__button');
+  //   button.addEventListener('click', function (evtClick) {
+  //     evtClick.preventDefault();
+  //     removeErrorPopup();
+  //   });
+  // };
 }
