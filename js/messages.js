@@ -1,4 +1,4 @@
-export function getSuccessMessage(successMessage) {
+export function displaySuccessMessage(successMessage) {
 
   let main = document.querySelector('main');
   let elem = document.createElement('div');
@@ -14,7 +14,7 @@ export function getSuccessMessage(successMessage) {
 }
 
 
-export function getErrorMessage(errorMessage) {
+export function displayErrorMessage(errorMessage) {
 
   let main = document.querySelector('main');
   let elem = document.createElement('div');

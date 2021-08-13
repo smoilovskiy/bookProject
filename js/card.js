@@ -1,8 +1,8 @@
 'use strict';
 import { offers } from './offersGen.js';
 import { getData } from "./server.js";
-import { getErrorMessage } from './messages.js';
-import { getSuccessMessage } from './messages.js';
+import { displayErrorMessage } from './messages.js';
+
 
 
 getData()
@@ -11,7 +11,8 @@ getData()
   createOffer(serverAnswer[0]);
 })
 .catch(function (error) {
-  getErrorMessage(error);
+
+  displayErrorMessage(error);
   let quitButton = document.querySelector('.error__button');
   quitButton.addEventListener('click', getData)
 })

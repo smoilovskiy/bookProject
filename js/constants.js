@@ -19,5 +19,5 @@ export const DESCRIPTIONS = ['Описание жилья №1', 'Описани
 export const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
 export const VISITORS = ['Вася', 'Коля', 'Петя', 'Люда'];
-export const sendFormSuccess = 'Ваше объявление<br>успешно размещено!';
+export const sendFormSuccess = 'Ваше объявление успешно размещено!';
 export const sendFormError = 'Ошибка размещения объявления';
