@@ -49,6 +49,7 @@ export async function sendData(e) {
       function templateClick(evt) {
 
         if (evt.target.className === 'success') {
+
           elem.style.display = 'none';
           document.location.reload();
         }
@@ -70,14 +71,23 @@ export async function sendData(e) {
       main.append(elem);
 
       window.addEventListener('keydown', templateKey);
+      window.addEventListener('click', templateClick);
 
       function templateKey(evt) {
         if (evt.keyCode == 27) {
           elem.style.display = 'none';
         }
       }
+
+      function templateClick(evt) {
+        if (evt.target.className === 'error__button') {
+          elem.style.display = 'none';
+        }
+      }
     }
   }
+
+
   action(responce);
 
 }
