@@ -3,7 +3,8 @@ import { offers } from './offersGen.js';
 import { setUiDisabled, setUiEnabled } from './form.js';
 import { mapInit } from './map.js';
 import { checkTitle, checkPrice, checkRoominess } from './validation.js';
-import { housingTypeFilter } from './filter.js';
+import { data } from './filter.js';
+
 import { sendData, getData } from './server.js';
 import { sendFormSuccess, sendFormError } from './constants.js';
 import { displayErrorMessage, displaySuccessMessage } from './messages.js';
@@ -23,7 +24,7 @@ checkRoominess();
 
 // debugger
 
-housingTypeFilter();
+// housingTypeFilter();
 
 
 console.log(offers);

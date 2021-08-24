@@ -52,7 +52,7 @@ export function mapInit() {
       let coordX = serverAnswer[i].location.lat;
       let coordY = serverAnswer[i].location.lng;
       createPins(coordX, coordY, serverAnswer[i]);
-      console.log(serverAnswer[i]);
+      // console.log(serverAnswer[i]);
     }
 
     function createPins(lat, lng, offer) {
