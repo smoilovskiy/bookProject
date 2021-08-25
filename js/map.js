@@ -2,7 +2,7 @@ import { offers } from "./offersGen.js";
 import { getData } from "./server.js";
 import { createOffer } from "./card.js";
 
-export function mapInit() {
+
 
   const formAddress = document.getElementById("address");
   const LAT = 35.68525;
@@ -16,9 +16,13 @@ export function mapInit() {
   }
   const map = new L.map("map-canvas", mapOptions);
   const layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+  // map.addLayer(layer);
+
+
+
+  export function mapInit() {
+
   map.addLayer(layer);
-
-
   const mainPin = L.icon({
     iconUrl: './img/main-pin.svg',
     iconSize: [80, 160],
@@ -45,51 +49,31 @@ export function mapInit() {
     console.log(serverAnswer);
     createCommonMarkers(serverAnswer);
   })
+}
 
-  function createCommonMarkers(serverAnswer) {
 
-    for (let i = 0; i < serverAnswer.length; i++) {
-      let coordX = serverAnswer[i].location.lat;
-      let coordY = serverAnswer[i].location.lng;
-      createPins(coordX, coordY, serverAnswer[i]);
-      // console.log(serverAnswer[i]);
-    }
+export function createCommonMarkers(serverAnswer) {
 
-    function createPins(lat, lng, offer) {
-      const commonPin = L.icon({
-        iconUrl: './img/pin.svg',
-        iconSize: [50, 50],
-      });
+  for (let i = 0; i < serverAnswer.length; i++) {
+    let coordX = serverAnswer[i].location.lat;
+    let coordY = serverAnswer[i].location.lng;
+    createPins(coordX, coordY, serverAnswer[i]);
+    // console.log(serverAnswer[i]);
+  }
 
-      const commonMarker = L.marker([lat, lng], {
-        icon: commonPin,
-      })
-      let markUpCard = createOffer(offer);
-      commonMarker.bindPopup(markUpCard).openPopup();
-      commonMarker.addTo(map);
-      return serverAnswer;
+  function createPins(lat, lng, offer) {
+    const commonPin = L.icon({
+      iconUrl: './img/pin.svg',
+      iconSize: [50, 50],
+    });
 
-    }
+    const commonMarker = L.marker([lat, lng], {
+      icon: commonPin,
+    })
+    let markUpCard = createOffer(offer);
+    commonMarker.bindPopup(markUpCard).openPopup();
+    commonMarker.addTo(map);
+    return serverAnswer;
 
   }
-  // for (let i = 0; i < offers.length; i++) {
-  //   let coordX = offers[i].location.x;
-  //   let coordY = offers[i].location.y;
-  //   createPins(coordX, coordY, offers[i]);
-  // }
-
-  // function createPins(lat, lng, offer) {
-  //   const commonPin = L.icon({
-  //     iconUrl: './img/pin.svg',
-  //     iconSize: [50, 50],
-  //   });
-
-  //   const commonMarker = L.marker([lat, lng], {
-  //     icon: commonPin,
-  //   })
-  //   let markUpCard = createOffer(offer);
-  //   commonMarker.bindPopup(markUpCard).openPopup();
-  //   commonMarker.addTo(map);
-  // }
-
 }
