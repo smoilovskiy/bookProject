@@ -57,7 +57,9 @@ function mapFilters(serverAnswer) {
 
   function filterByHousingType(offer) {
     // debugger
-    if (housingType.value === "any") return true;
+    if (housingType.value === "any") {
+      return true;
+    }
     return offer.offer.type === housingType.value;
   }
 
@@ -79,15 +81,45 @@ function mapFilters(serverAnswer) {
   }
 
   function filterByHousingRooms(offer) {
-    return offer.offer.rooms === housingRooms.value;
+    if (housingRooms.value === "any") {
+      return true;
+    }
+
+    return offer.offer.rooms === +housingRooms.value;
+
   }
 
   function filterByHousingGuests(offer) {
-    console.log("guests " + housingGuests.value);
-    return offer.offer.guests === housingGuests.value;
+    if (housingGuests.value === "any") {
+      return true;
+    }
+    return offer.offer.guests === +housingGuests.value;
   }
 
-  let filteredArr = serverAnswer.filter(filterByHousingPrice); // filterByHousingType && filterByHousingPrice && filterByHousingRooms && filterByHousingGuests
+  function filterByFeature(offer) {
+
+    let filtered = true;
+    if (Boolean(offer.offer.features) && tempArr.length > 0) {
+
+      tempArr.forEach(function (chBox) {
+        if (!offer.offer.features.includes(chBox)) {
+          filtered = false;
+
+        }
+      })
+    }
+      return filtered;
+  }
+
+
+  let commonFilter = function (elem) {
+    return filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && filterByHousingGuests(elem) && filterByFeature(elem)
+  }
+  //  filteredArr = serverAnswer.filter(commonFilter);
+
+  // filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && housingGuestsHandler(elem) && filterByHousingGuests(elem)
+
+  let filteredArr = serverAnswer.filter(commonFilter);
   //  debugger
   let commonMarkers = document.querySelectorAll('.leaflet-marker-icon[src="./img/pin.svg"]')
   // console.log(commonMarkers);
@@ -97,5 +129,22 @@ function mapFilters(serverAnswer) {
   createCommonMarkers(filteredArr);
 
   console.log(filteredArr);
+
+  // let featuresFilter = function (elem) {
+
+  //   const filterFeaturesCheckboxes = document.querySelectorAll('.map__features input[type=checkbox]:checked');
+
+  //   let filtered = true;
+  //   if (filterFeaturesCheckboxes.length && elem.offer.features) {
+
+  //     filterFeaturesCheckboxes.forEach(function (chBox) {
+  //       if (!elem.offer.features.includes(chBox.value)) {
+  //         filtered = false;
+  //       }
+  //     });
+  //   }
+  //   return filtered;
+  // };
+
 
 }
