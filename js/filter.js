@@ -96,25 +96,52 @@ function mapFilters(serverAnswer) {
     return offer.offer.guests === +housingGuests.value;
   }
 
-  function filterByFeature(offer) {
+  // function filterByFeature(offer) {
 
-    let filtered = true;
+  //   console.log(offer);
+  //   let filtered = true;
+  //   if (Boolean(offer.offer.features) && tempArr.length > 0) {
+
+  //     tempArr.forEach(function (elem) {
+  //       if (!offer.offer.features.includes(elem)) {
+  //         filtered = false;
+
+  //       }
+  //     })
+  //   }
+  //     console.log(filtered);
+  //     return filtered;
+  // }
+
+  function filterByFeature(offer) {
+    if (tempArr.length === 0 ) {
+      return true;
+    }
+    console.log(offer);
+
+    let filtered = false;
+
     if (Boolean(offer.offer.features) && tempArr.length > 0) {
 
-      tempArr.forEach(function (chBox) {
-        if (!offer.offer.features.includes(chBox)) {
-          filtered = false;
 
-        }
-      })
+      for (let i = 0; i < tempArr.length; i++) {
+        if (offer.offer.features.includes(tempArr[i])) {
+          filtered = true;
+        } 
+      }
     }
-      return filtered;
+
+    console.log(filtered);
+    return filtered;
   }
 
 
   let commonFilter = function (elem) {
-    return filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && filterByHousingGuests(elem) && filterByFeature(elem)
+
+    return filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && filterByHousingGuests(elem) && filterByFeature(elem);
   }
+
+
   //  filteredArr = serverAnswer.filter(commonFilter);
 
   // filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && housingGuestsHandler(elem) && filterByHousingGuests(elem)
