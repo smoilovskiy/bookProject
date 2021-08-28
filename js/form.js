@@ -163,3 +163,26 @@ export function outTime(evt) {
   }
   timeIn.value = cc;
 }
+
+let loadAvatar = document.querySelector('#avatar');
+let avatarPreview = document.querySelector('.ad-form-header__preview');
+let avatarPreviewImg = document.querySelector('.ad-form-header__preview').querySelector('img');
+
+loadAvatar.addEventListener('change', function () {
+  let file = loadAvatar.files[0];
+
+    let reader = new FileReader();
+
+    reader.addEventListener('load', function () {
+      avatarPreviewImg.width = '70';
+      avatarPreviewImg.height = '70';
+      avatarPreview.style.padding = '0';
+      avatarPreviewImg.src = reader.result;
+    });
+
+    reader.readAsDataURL(file);
+
+});
+
+
+

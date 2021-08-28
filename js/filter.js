@@ -114,24 +114,22 @@ function mapFilters(serverAnswer) {
   // }
 
   function filterByFeature(offer) {
-    if (tempArr.length === 0 ) {
+    if (tempArr.length === 0) {
       return true;
     }
-    console.log(offer);
 
     let filtered = false;
 
     if (Boolean(offer.offer.features) && tempArr.length > 0) {
 
-
       for (let i = 0; i < tempArr.length; i++) {
         if (offer.offer.features.includes(tempArr[i])) {
           filtered = true;
-        } 
+        }
       }
     }
 
-    console.log(filtered);
+    // console.log(filtered);
     return filtered;
   }
 
