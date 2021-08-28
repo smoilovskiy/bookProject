@@ -185,4 +185,26 @@ loadAvatar.addEventListener('change', function () {
 });
 
 
+let loadPhoto = document.querySelector('#images');
+let photoPreview = document.querySelector('.ad-form__photo');
+loadPhoto.setAttribute('multiple', 'multiple');
+photoPreview.style.display = 'flex';
 
+loadPhoto.addEventListener('change', function () {
+  
+  Array.from(loadPhoto.files).forEach(function (file) {
+
+      let reader = new FileReader();
+
+      reader.addEventListener('load', function () {
+        let photo = document.createElement('img');
+        photo.style.height = '90px';
+        photo.src = reader.result;
+        photoPreview.appendChild(photo);
+        // photos.push(photo);
+      });
+
+      reader.readAsDataURL(file);
+
+  });
+});
