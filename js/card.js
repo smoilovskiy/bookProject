@@ -1,13 +1,10 @@
 'use strict';
-import { offers } from './offersGen.js';
+
 import { getData } from "./server.js";
 import { displayErrorMessage } from './messages.js';
 
-
-
 getData()
 .then(function (serverAnswer) {
-  // getSuccessMessage(getSuccess);
   createOffer(serverAnswer[0]);
 })
 .catch(function (error) {
@@ -16,9 +13,6 @@ getData()
   let quitButton = document.querySelector('.error__button');
   quitButton.addEventListener('click', getData)
 })
-
-
-
 
 
 export function createOffer(firstOffer) {
@@ -68,12 +62,10 @@ export function createOffer(firstOffer) {
 
   if (typeof firstOffer.offer['features'] !== "undefined") {
 
-    // if (firstOffer.offer['features'].length > 0) {
     let newFeatures = firstOffer.offer.features.map(feature => {
       return `<li class = "popup__feature popup__feature--${feature}">`
     })
     features.innerHTML = newFeatures;
-    // }
   }
 
   let description = clonedCard.querySelector('.popup__description');
@@ -94,21 +86,6 @@ export function createOffer(firstOffer) {
   let avatar = clonedCard.querySelector('.popup__avatar');
   let srcAvatar = firstOffer.author.avatar;
   avatar.src = srcAvatar;
-
-  // let popAvatar = clonedCard.querySelector(".popup__avatar");
-  // let srcAvatar = offerDate['author'].avatar;
-  // popAvatar.innerText = srcAvatar;
-
-  // let article = clonedCard.querySelector('.popup');
-  // let p = document.createElement('p');
-  // clonedCard.append(p);
-  // let newVisitors = firstOffer.offer.visitors.map(visitor => 
-  //   {
-  //    return ` ${visitor}`;
-  //   })
-
-  // p.innerText = "Гости:" + newVisitors;
-
 
   return clonedCard;
 }

@@ -7,7 +7,7 @@ import { createOffer } from "./card.js";
   const formAddress = document.getElementById("address");
   const LAT = 35.68525;
   const LNG = 139.75146;
-  const mapZoom = 10
+  const mapZoom = 13;
 
 
   const mapOptions = {
@@ -16,8 +16,6 @@ import { createOffer } from "./card.js";
   }
   const map = new L.map("map-canvas", mapOptions);
   const layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
-  // map.addLayer(layer);
-
 
 
   export function mapInit() {
@@ -51,14 +49,12 @@ import { createOffer } from "./card.js";
   })
 }
 
-
 export function createCommonMarkers(serverAnswer) {
 
   for (let i = 0; i < serverAnswer.length; i++) {
     let coordX = serverAnswer[i].location.lat;
     let coordY = serverAnswer[i].location.lng;
     createPins(coordX, coordY, serverAnswer[i]);
-    // console.log(serverAnswer[i]);
   }
 
   function createPins(lat, lng, offer) {
@@ -73,7 +69,5 @@ export function createCommonMarkers(serverAnswer) {
     let markUpCard = createOffer(offer);
     commonMarker.bindPopup(markUpCard).openPopup();
     commonMarker.addTo(map);
-    return serverAnswer;
-
   }
 }

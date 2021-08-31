@@ -3,7 +3,6 @@ import { getData } from "./server.js";
 import { createCommonMarkers } from "./map.js";
 export const data = 1
 
-// createOffer(serverAnswer[0]);
 const formFilter = document.querySelector('.map__filters');
 
 
@@ -12,14 +11,7 @@ formFilter.addEventListener("change", (evt) => {
 
   getData()
     .then(function (serverAnswer) {
-      // console.log(serverAnswer);
       mapFilters(serverAnswer);
-
-
-
-
-
-
     });
 });
 
@@ -27,9 +19,6 @@ formFilter.addEventListener("change", (evt) => {
 console.log(data);
 
 function mapFilters(serverAnswer) {
-  // debugger
-
-  console.log(serverAnswer);
 
   let housingType = document.querySelector('#housing-type');
   let housingPrice = document.querySelector('#housing-price');
@@ -48,15 +37,7 @@ function mapFilters(serverAnswer) {
   console.log(filterFeatures);
   console.log(tempArr);
 
-
-  // console.log(housingType.value);
-  // console.log(housingPrice.value);
-  // console.log(housingRooms.value);
-  // console.log(housingGuests.value);
-  // console.log(filterFeatures);
-
   function filterByHousingType(offer) {
-    // debugger
     if (housingType.value === "any") {
       return true;
     }
@@ -64,8 +45,6 @@ function mapFilters(serverAnswer) {
   }
 
   function filterByHousingPrice(offer) {
-    // debugger
-
     if (housingPrice.value === "low") {
       return offer.offer.price < 10000;
     }
@@ -96,23 +75,6 @@ function mapFilters(serverAnswer) {
     return offer.offer.guests === +housingGuests.value;
   }
 
-  // function filterByFeature(offer) {
-
-  //   console.log(offer);
-  //   let filtered = true;
-  //   if (Boolean(offer.offer.features) && tempArr.length > 0) {
-
-  //     tempArr.forEach(function (elem) {
-  //       if (!offer.offer.features.includes(elem)) {
-  //         filtered = false;
-
-  //       }
-  //     })
-  //   }
-  //     console.log(filtered);
-  //     return filtered;
-  // }
-
   function filterByFeature(offer) {
     if (tempArr.length === 0) {
       return true;
@@ -129,7 +91,6 @@ function mapFilters(serverAnswer) {
       }
     }
 
-    // console.log(filtered);
     return filtered;
   }
 
@@ -139,37 +100,10 @@ function mapFilters(serverAnswer) {
     return filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && filterByHousingGuests(elem) && filterByFeature(elem);
   }
 
-
-  //  filteredArr = serverAnswer.filter(commonFilter);
-
-  // filterByHousingType(elem) && filterByHousingPrice(elem) && filterByHousingRooms(elem) && housingGuestsHandler(elem) && filterByHousingGuests(elem)
-
   let filteredArr = serverAnswer.filter(commonFilter);
-  //  debugger
   let commonMarkers = document.querySelectorAll('.leaflet-marker-icon[src="./img/pin.svg"]')
-  // console.log(commonMarkers);
   for (let i = 0; i < commonMarkers.length; i++) {
     commonMarkers[i].remove();
   }
   createCommonMarkers(filteredArr);
-
-  console.log(filteredArr);
-
-  // let featuresFilter = function (elem) {
-
-  //   const filterFeaturesCheckboxes = document.querySelectorAll('.map__features input[type=checkbox]:checked');
-
-  //   let filtered = true;
-  //   if (filterFeaturesCheckboxes.length && elem.offer.features) {
-
-  //     filterFeaturesCheckboxes.forEach(function (chBox) {
-  //       if (!elem.offer.features.includes(chBox.value)) {
-  //         filtered = false;
-  //       }
-  //     });
-  //   }
-  //   return filtered;
-  // };
-
-
 }

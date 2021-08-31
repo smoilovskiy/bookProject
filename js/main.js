@@ -22,9 +22,4 @@ checkTitle();
 checkPrice();
 checkRoominess();
 
-// debugger
-
-// housingTypeFilter();
-
-
 console.log(offers);

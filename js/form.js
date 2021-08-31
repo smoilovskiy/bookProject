@@ -1,5 +1,4 @@
 'use strict';
-//let form = document.querySelector(".ad-form__element");
 
 let typeHome = document.querySelector("#type");
 let formPrice = document.querySelector("#price");
@@ -120,8 +119,6 @@ export function homePrice(evt) {
   formPrice.min = count;
 }
 
-//let formEl = document.querySelector(".ad-form__element--time");
-
 let timeIn = document.querySelector('#timein');
 let timeOut = document.querySelector('#timeout');
 
@@ -201,7 +198,6 @@ loadPhoto.addEventListener('change', function () {
         photo.style.height = '90px';
         photo.src = reader.result;
         photoPreview.appendChild(photo);
-        // photos.push(photo);
       });
 
       reader.readAsDataURL(file);
